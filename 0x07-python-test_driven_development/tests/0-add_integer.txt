@@ -1,0 +1,61 @@
+Import function 'add_integer' for testing
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Test 0 'both ints'
+    >>> add_integer(2, 1)
+    3
+
+Test 1 'both ints'
+    >>> add_integer(0)
+    98
+
+Test 2 'negative'
+    >>> add_integer(-10, -15)
+    -25
+
+Test 3 'cast to int, cant be floats'
+    >>> add_integer(1.4, 1.8)
+    2
+
+Test 4 'a is not an int'
+    >>> add_integer('asdfsadf', 1)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+Test 5 'b is not an int'
+    >>> add_integer(1, 'asdfsadf')
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+Test 6 'matrix issue'
+    >>> add_integer(1, [0, 5, 15])
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+Test 7 'no var passed'
+    >>> add_integer()
+    Traceback (most recent call last):
+    TypeError: add_integer() missing 1 required positional argument: 'a'
+
+Test 8 '3 args'
+    >>> add_integer(1, 10, 15)
+    Traceback (most recent call last):
+    TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+Test 9 'inf'
+
+    >>> add_integer(float("inf"))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+Test 10 '-inf'
+
+    >>> add_integer(float("-inf"))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+Test 11 'not real'
+
+    >>> add_integer(float("NaN"))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
