@@ -1,0 +1,22 @@
+Import function 'text_indentation' for testing
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Test 0 'text with no del'
+    >>> text_indentation('hi how are ya')
+    hi how are ya
+
+Test 1 'text with del'
+    >>> text_indentation('hi how. are ya')
+    hi how.
+    <BLANKLINE>
+    are ya
+
+Test 2 'nothing'
+    >>> text_indentation()
+    Traceback (most recent call last):
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+Test 2 'int'
+    >>> text_indentation(46)
+    Traceback (most recent call last):
+    TypeError: text must be a string
