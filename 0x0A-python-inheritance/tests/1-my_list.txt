@@ -1,0 +1,81 @@
+Import
+
+>>> MyList = __import__('1-my_list').MyList
+
+Test 0 'sorted ascending'
+    >>> MyList([0, 3, 2]).print_sorted()
+    [0, 2, 3]
+
+Test 1 'empty list'
+    >>> MyList([]).print_sorted()
+    []
+
+Test 2 'inheritence'
+    >>> thislist = MyList()
+    >>> thislist.append('y')
+    >>> thislist.append('x')
+    >>> print(thislist)
+    ['y', 'x']
+    >>> thislist.print_sorted()
+    ['x', 'y']
+    >>> print(thislist)
+    ['y', 'x']
+
+Test 3 'correct type of list'
+    >>> thislist = MyList()
+    >>> type(thislist)
+    <class '1-my_list.MyList'>
+    >>> print(thislist.print_sorted)
+    <bound method MyList.print_sorted of []>
+
+Test 4 'no args'
+    >>> MyList([8, 6, 7]).print_sorted('x')
+    Traceback (most recent call last):
+    TypeError: print_sorted() takes 1 positional argument but 2 were given
+
+Test 5 'only one data type'
+    >>> MyList([10, 'x', 1]).print_sorted()
+    Traceback (most recent call last):
+    TypeError: '<' not supported between instances of 'str' and 'int'
+
+Test 6 'only one list'
+    >>> MyList([1, 2], [3, 4]).print_sorted()
+    Traceback (most recent call last):
+    TypeError: list expected at most 1 argument, got 2
+
+Test 7 'cant be none'
+    >>> MyList(None).print_sorted()
+    Traceback (most recent call last):
+    TypeError: 'NoneType' object is not iterable
+
+Test 8 'dictonarys'
+    >>> MyList({"moby": 1, "dict": 2}).print_sorted()
+    ['dict', 'moby']
+
+Test 9 'one element'
+    >>> thislist = MyList()
+    >>> thislist.append(1)
+    >>> thislist.print_sorted()
+    [1]
+
+Test 10 'negative element'
+    >>> thislist = MyList()
+    >>> thislist.append(1)
+    >>> thislist.append(-6)
+    >>> thislist.append(10)
+    >>> thislist.print_sorted()
+    [-6, 1, 10]
+
+Test 10 'repeated element'
+    >>> thislist = MyList()
+    >>> thislist.append(1)
+    >>> thislist.append(1)
+    >>> thislist.append(2)
+    >>> thislist.print_sorted()
+    [1, 1, 2]
+
+Test 11 'bool'
+    >>> thislist = MyList()
+    >>> thislist.append(True)
+    >>> thislist.print_sorted()
+    [True]
