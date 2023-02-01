@@ -1,0 +1,126 @@
+Import
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Test 0 'class has a type'
+    >>> clash = BaseGeometry()
+    >>> type(clash)
+    <class '7-base_geometry.BaseGeometry'>
+
+Test 1 'name and int'
+    >>> clash = BaseGeometry()
+    >>> clash.integer_validator("x", 1)
+
+    >>> clashx = BaseGeometry()
+    >>> clashx.integer_validator(1, 1)
+
+Test 2 'no char'
+
+    >>> clash = BaseGeometry()
+    >>> clash.integer_validator('x', 'y')
+    Traceback (most recent call last):
+    TypeError: x must be an integer
+
+Test 3 'no value'
+
+    >>> clash = BaseGeometry()
+    >>> clash.integer_validator('x')
+    Traceback (most recent call last):
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+Test 4 'no negs'
+
+    >>> clash = BaseGeometry()
+    >>> clash.integer_validator('x', -1)
+    Traceback (most recent call last):
+    ValueError: x must be greater than 0
+
+Test 5 'no lists'
+
+    >>> clash = BaseGeometry()
+    >>> clash.integer_validator('x', [-1, 0, 1])
+    Traceback (most recent call last):
+    TypeError: x must be an integer
+
+Test 6 'no nothing'
+
+    >>> clash = BaseGeometry()
+    >>> clash.integer_validator()
+    Traceback (most recent call last):
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Test 7 'no none'
+
+    >>> clash = BaseGeometry()
+    >>> clash.integer_validator('x', None)
+    Traceback (most recent call last):
+    TypeError: x must be an integer
+
+Test 8 'no bool'
+
+    >>> clash = BaseGeometry()
+    >>> clash.integer_validator('x', True)
+    Traceback (most recent call last):
+    TypeError: x must be an integer
+
+Test 9 'area don't work'
+
+    >>> clash = BaseGeometry()
+    >>> clash.area()
+    Traceback (most recent call last):
+    Exception: area() is not implemented
+
+Test 10 'area don't work+'
+
+    >>> clash = BaseGeometry()
+    >>> clash.area('yeet')
+    Traceback (most recent call last):
+    TypeError: area() takes 1 positional argument but 2 were given
+
+Test 11 'area don't work++'
+
+    >>> clash = BaseGeometry()
+    >>> clash.integer_validator('yeet', 1, 'yeeted')
+    Traceback (most recent call last):
+    TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+Test 12 'args'
+
+    >>> clash = BaseGeometry('1')
+    Traceback (most recent call last):
+    TypeError: BaseGeometry() takes no arguments
+
+Test 13 'moby'
+
+    >>> clash = BaseGeometry()
+    >>> clash.integer_validator('1', {'moby': 1})
+    Traceback (most recent call last):
+    TypeError: 1 must be an integer
+
+Test 14 'tuples'
+
+    >>> clash = BaseGeometry()
+    >>> clash.integer_validator('1', (1, 2))
+    Traceback (most recent call last):
+    TypeError: 1 must be an integer
+
+Test 15 'no 0'
+
+    >>> clash = BaseGeometry()
+    >>> clash.integer_validator('1', 0)
+    Traceback (most recent call last):
+    ValueError: 1 must be greater than 0
+
+Test 16 'no str'
+
+    >>> clash = BaseGeometry()
+    >>> clash.integer_validator('1', '2')
+    Traceback (most recent call last):
+    TypeError: 1 must be an integer
+
+Test 17 'no sets'
+
+    >>> clash = BaseGeometry()
+    >>> clash.integer_validator('1', {'2', '3'})
+    Traceback (most recent call last):
+    TypeError: 1 must be an integer
