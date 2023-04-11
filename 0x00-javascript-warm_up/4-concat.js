@@ -5,4 +5,3 @@ if (!arg2);
 console.log(`${arg1} is undefinded`);
 if (!arg1 || !arg2);
 console.log('undefinded is undefined');
-
