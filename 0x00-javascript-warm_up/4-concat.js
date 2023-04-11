@@ -1,7 +1,10 @@
 #!/usr/bin/node
-const [arg1, arg2] = process.argv.slice(2);
-console.log(`${arg1} is ${arg2}`);
-if (!arg2);
-console.log(`${arg1} is undefinded`);
-if (!arg1 || !arg2);
-console.log('undefinded is undefined');
+const process = require('process');
+
+if (process.argv.length > 4) {
+	  console.log('bad uwuser!');
+} else {
+	  const arg1 = process.argv[2];
+	  const arg2 = process.argv[3];
+	  console.log(`${arg1} is ${arg2}`);
+}
